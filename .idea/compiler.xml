@@ -9,6 +9,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar" />
         </processorPath>
+        <module name="covid-module" />
         <module name="covid" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="covid" options="-parameters" />
+      <module name="covid-module" options="-parameters" />
     </option>
   </component>
 </project>

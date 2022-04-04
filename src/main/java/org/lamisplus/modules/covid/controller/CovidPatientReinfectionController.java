@@ -11,8 +11,8 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/covid/reinfections")
-public class CovidReinfectionController {
+@RequestMapping("api/covid/patientreinfections")
+public class CovidPatientReinfectionController {
     private final PatientReinfectionService patientReinfectionService;
     
     @PostMapping("/save")
