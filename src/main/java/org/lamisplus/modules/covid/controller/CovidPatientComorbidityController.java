@@ -15,7 +15,7 @@ import java.util.List;
 public class CovidPatientComorbidityController {
     private final PatientComorbidityService patientComorbidityService;
 
-    @PostMapping("/")
+    @PostMapping("")
     public List<PatientComorbidity> save(@RequestBody List<PatientComorbidity> comorbidities){
         return patientComorbidityService.SaveAll(comorbidities);
     }

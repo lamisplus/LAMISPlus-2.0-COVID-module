@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class CovidPatientStatusController {
     private final PatientStatusService service;
 
-    @PostMapping("/")
+    @PostMapping("")
     public PatientStatus AddStatus(@RequestBody PatientStatus patientStatus){
         return service.SaveStatus(patientStatus);
     }

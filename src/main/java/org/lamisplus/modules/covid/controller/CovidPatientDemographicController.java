@@ -15,7 +15,7 @@ import java.util.List;
 public class CovidPatientDemographicController {
     private final DemographicService service;
 
-    @PostMapping("/")
+    @PostMapping("")
     public Demographic Add(@RequestBody Demographic demographic){
         return service.SaveDemographic(demographic);
     }
