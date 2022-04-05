@@ -17,12 +17,12 @@ public class CovidPatientVitalsignController {
 
     @PostMapping("")
     public PatientVitalsign SavePatientVitalsign(@RequestBody PatientVitalsign vitalsign){
-        return patientVitalsignService.SaveVitalsign(vitalsign);
+        return patientVitalsignService.Save(vitalsign);
     }
 
     @PutMapping("/{id}")
-    public PatientVitalsign UpdatePatientVitalsign(@PathVariable Long id, @RequestBody PatientVitalsign vitalsign){
-        return patientVitalsignService.UpdateVitalsign(vitalsign);
+    public PatientVitalsign UpdatePatientVitalsign(@PathVariable int id, @RequestBody PatientVitalsign vitalsign){
+        return patientVitalsignService.UpdateVitalsign(id, vitalsign);
     }
 
     @GetMapping("/{patient_id}")

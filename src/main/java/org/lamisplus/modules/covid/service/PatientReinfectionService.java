@@ -15,16 +15,12 @@ public class PatientReinfectionService {
     @Autowired
     private PatientReinfectionRepository repository;
 
-    public PatientReinfection SaveReinfection(PatientReinfection patientReinfection){
+    public PatientReinfection Save(PatientReinfection patientReinfection){
         return repository.save(patientReinfection);
     }
 
-    public List<PatientReinfection> SaveAll(List<PatientReinfection> patientReinfections){
-        return repository.saveAll(patientReinfections);
-    }
-
-    public PatientReinfection UpdateReinfection(PatientReinfection patientReinfection){
-        return repository.save(patientReinfection);
+    public PatientReinfection UpdateReinfection(int id, PatientReinfection patientReinfection){
+        return repository.update(id, patientReinfection);
     }
 
     public List<PatientReinfection> GetbyPatientId(int patient_id) {

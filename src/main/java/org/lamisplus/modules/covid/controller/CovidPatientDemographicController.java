@@ -21,8 +21,8 @@ public class CovidPatientDemographicController {
     }
 
     @PutMapping("/{id}")
-    public Demographic Update(@PathVariable Long id, @RequestBody Demographic demographic){
-        return service.UpdateDemographic(demographic);
+    public Demographic Update(@PathVariable int id, @RequestBody Demographic demographic){
+        return service.UpdateDemographic(id, demographic);
     }
 
     @GetMapping("")

@@ -25,7 +25,7 @@ public class PatientReinfectionRepository {
                 reinfection.getConfirmed(),
                 reinfection.getAdmitted(),
                 reinfection.getAdmission_date());
-        return findByUUID(reinfection.getUuid()).orElse(null);
+        return findByUUID(reinfection.getUuid());
     }
 
     public List<PatientReinfection> saveAll(List<PatientReinfection> comorbidities) {
@@ -37,7 +37,7 @@ public class PatientReinfectionRepository {
         return reinfectionList;
     }
 
-    public Optional<PatientReinfection> update(PatientReinfection reinfection) {
+    public PatientReinfection update(int id, PatientReinfection reinfection) {
         jdbcTemplate.update("UPDATE covid_patient_reinfection set " +
                         "patient_id=?, visit_date=?, reinfection_id=?, reinfection_value=? " +
                         "where id=?",
@@ -64,9 +64,9 @@ public class PatientReinfectionRepository {
                 new BeanPropertyRowMapper<PatientReinfection>(PatientReinfection.class), patient_id);
     }
 
-    public Optional<PatientReinfection> findByUUID(String uuid) {
+    public PatientReinfection findByUUID(String uuid) {
         return jdbcTemplate.query("SELECT * FROM covid_patient_reinfection where patient_id = ?",
-                new BeanPropertyRowMapper<PatientReinfection>(PatientReinfection.class), uuid).stream().findFirst();
+                new BeanPropertyRowMapper<PatientReinfection>(PatientReinfection.class), uuid).stream().findFirst().orElse(null);
     }
 }
 

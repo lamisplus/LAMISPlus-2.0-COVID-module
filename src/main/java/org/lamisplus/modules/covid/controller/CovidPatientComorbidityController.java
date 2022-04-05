@@ -17,12 +17,12 @@ public class CovidPatientComorbidityController {
 
     @PostMapping("")
     public List<PatientComorbidity> save(@RequestBody List<PatientComorbidity> comorbidities){
-        return patientComorbidityService.SaveAll(comorbidities);
+        return patientComorbidityService.Save(comorbidities);
     }
 
     @PutMapping("/{id}")
-    public PatientComorbidity update(@PathVariable Long id, @RequestBody PatientComorbidity comorbidity){
-        return patientComorbidityService.UpdateComorbidity(comorbidity);
+    public PatientComorbidity update(@PathVariable int id, @RequestBody PatientComorbidity comorbidity){
+        return patientComorbidityService.UpdateComorbidity(id, comorbidity);
     }
 
     @GetMapping("/{patient_id}")

@@ -19,7 +19,7 @@ public class PatientStatusService {
         return repository.save(patientStatus);
     }
 
-    public PatientStatus UpdateStatus(PatientStatus patientStatus){
+    public PatientStatus UpdateStatus(int id, PatientStatus patientStatus){
         return repository.save(patientStatus);
     }
 

@@ -15,15 +15,11 @@ public class PatientSymptomService {
     @Autowired
     private PatientSymptomRepository repository;
 
-    public PatientSymptom SaveSymptom(PatientSymptom patientSymptom){
-        return repository.save(patientSymptom);
-    }
-
-    public List<PatientSymptom> SaveAll(List<PatientSymptom> patientSymptoms){
+    public List<PatientSymptom> Save(List<PatientSymptom> patientSymptoms){
         return repository.saveAll(patientSymptoms);
     }
 
-    public PatientSymptom UpdateSymptom(PatientSymptom patientSymptom){
+    public PatientSymptom UpdateSymptom(int id, PatientSymptom patientSymptom){
         return repository.save(patientSymptom);
     }
 

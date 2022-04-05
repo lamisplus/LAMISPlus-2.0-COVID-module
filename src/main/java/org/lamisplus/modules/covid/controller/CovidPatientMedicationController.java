@@ -19,12 +19,12 @@ public class CovidPatientMedicationController {
 
     @PostMapping("")
     public List<PatientMedication> SavePatientMedications(@RequestBody List<PatientMedication> medications){
-        return patientMedicationService.SaveAll(medications);
+        return patientMedicationService.Save(medications);
     }
 
     @PutMapping("/{id}")
-    public PatientMedication UpdatePatientMedication(@PathVariable Long id, @RequestBody PatientMedication medication){
-        return patientMedicationService.UpdateMedication(medication);
+    public PatientMedication UpdatePatientMedication(@PathVariable int id, @RequestBody PatientMedication medication){
+        return patientMedicationService.Update(id, medication);
     }
 
     @GetMapping("/{patient_id}")
@@ -34,6 +34,6 @@ public class CovidPatientMedicationController {
 
     @DeleteMapping("/{id}")
     public String DeletePatientMedication(@PathVariable Integer id){
-        return patientMedicationService.DeleteMedication(id);
+        return patientMedicationService.Delete(id);
     }
 }

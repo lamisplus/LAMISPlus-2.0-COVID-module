@@ -16,15 +16,11 @@ public class PatientComorbidityService {
     @Autowired
     private PatientComorbidityRepository repository;
 
-    public PatientComorbidity SaveComorbidity(PatientComorbidity patientComorbidity){
-        return repository.save(patientComorbidity);
-    }
-
-    public List<PatientComorbidity> SaveAll(List<PatientComorbidity> patientComorbidities){
+    public List<PatientComorbidity> Save(List<PatientComorbidity> patientComorbidities){
         return repository.saveAll(patientComorbidities);
     }
 
-    public PatientComorbidity UpdateComorbidity(PatientComorbidity patientComorbidity){
+    public PatientComorbidity UpdateComorbidity(int id, PatientComorbidity patientComorbidity){
         return repository.save(patientComorbidity);
     }
 

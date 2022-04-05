@@ -21,8 +21,8 @@ public class CovidPatientInclusionCriteriaController {
     }
 
     @PutMapping("/{id}")
-    public InclusionCriteria Update(@PathVariable Long id, @RequestBody InclusionCriteria criteria){
-        return service.Update(criteria);
+    public InclusionCriteria Update(@PathVariable int id, @RequestBody InclusionCriteria criteria){
+        return service.Update(id, criteria);
     }
 
     @GetMapping("")

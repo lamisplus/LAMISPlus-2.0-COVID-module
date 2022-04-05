@@ -19,8 +19,8 @@ public class CovidPatientStatusController {
     }
 
     @PutMapping("/{id}")
-    public PatientStatus UpdateStatus(@PathVariable Long id, @RequestBody PatientStatus patientStatus){
-        return service.UpdateStatus(patientStatus);
+    public PatientStatus UpdateStatus(@PathVariable int id, @RequestBody PatientStatus patientStatus){
+        return service.UpdateStatus(id, patientStatus);
     }
 
     @GetMapping("")

@@ -18,7 +18,7 @@ public class DemographicService {
         return repository.save(demographic);
     }
 
-    public Demographic UpdateDemographic(Demographic demographic){
+    public Demographic UpdateDemographic(int id, Demographic demographic){
         return repository.save(demographic);
     }
 

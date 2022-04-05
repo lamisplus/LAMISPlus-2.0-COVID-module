@@ -16,15 +16,11 @@ public class PatientMedicationService {
     @Autowired
     private PatientMedicationRepository repository;
 
-    public PatientMedication SaveMedication(PatientMedication patientMedication){
-        return repository.save(patientMedication);
-    }
-
-    public List<PatientMedication> SaveAll(List<PatientMedication> patientMedications){
+    public List<PatientMedication> Save(List<PatientMedication> patientMedications){
         return repository.saveAll(patientMedications);
     }
 
-    public PatientMedication UpdateMedication(PatientMedication patientMedication){
+    public PatientMedication Update(int id, PatientMedication patientMedication){
         return repository.save(patientMedication);
     }
 
@@ -32,7 +28,7 @@ public class PatientMedicationService {
         return repository.findByPatientId(patient_id);
     }
 
-    public String DeleteMedication(int id) {
+    public String Delete(int id) {
         return repository.delete(id);
     }
 }

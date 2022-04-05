@@ -22,7 +22,7 @@ public class InclusionCriteriaService {
         return repository.save(criteria);
     }
 
-    public InclusionCriteria Update(InclusionCriteria criteria){
+    public InclusionCriteria Update(int id, InclusionCriteria criteria){
         return repository.save(criteria);
     }
 

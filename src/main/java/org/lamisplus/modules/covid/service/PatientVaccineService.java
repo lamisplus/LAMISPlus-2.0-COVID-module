@@ -19,7 +19,7 @@ public class PatientVaccineService {
         return repository.save(patientVaccine);
     }
 
-    public PatientVaccine UpdateVaccine(PatientVaccine patientVaccine){
+    public PatientVaccine UpdateVaccine(int id, PatientVaccine patientVaccine){
         return repository.save(patientVaccine);
     }
 

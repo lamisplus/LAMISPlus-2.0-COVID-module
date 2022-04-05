@@ -17,12 +17,12 @@ public class CovidPatientReinfectionController {
     
     @PostMapping("")
     public PatientReinfection SavePatientReinfection(@RequestBody PatientReinfection reinfection){
-        return patientReinfectionService.SaveReinfection(reinfection);
+        return patientReinfectionService.Save(reinfection);
     }
 
     @PutMapping("/{id}")
-    public PatientReinfection UpdatePatientReinfection(@PathVariable Long id, @RequestBody PatientReinfection reinfection){
-        return patientReinfectionService.UpdateReinfection(reinfection);
+    public PatientReinfection UpdatePatientReinfection(@PathVariable int id, @RequestBody PatientReinfection reinfection){
+        return patientReinfectionService.UpdateReinfection(id, reinfection);
     }
 
     @GetMapping("/{patient_id}")

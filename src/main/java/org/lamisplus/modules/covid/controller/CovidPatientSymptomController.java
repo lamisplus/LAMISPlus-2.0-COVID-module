@@ -19,12 +19,12 @@ public class CovidPatientSymptomController {
 
     @PostMapping("")
     public List<PatientSymptom> SavePatientComorbidities(@RequestBody List<PatientSymptom> symptoms){
-        return patientSymptomService.SaveAll(symptoms);
+        return patientSymptomService.Save(symptoms);
     }
 
     @PutMapping("/{id}")
-    public PatientSymptom UpdatePatientSymptom(@PathVariable Long id, @RequestBody PatientSymptom symptom){
-        return patientSymptomService.UpdateSymptom(symptom);
+    public PatientSymptom UpdatePatientSymptom(@PathVariable int id, @RequestBody PatientSymptom symptom){
+        return patientSymptomService.UpdateSymptom(id, symptom);
     }
 
     @GetMapping("/{patient_id}")

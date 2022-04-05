@@ -15,15 +15,11 @@ public class PatientVitalsignService {
     @Autowired
     private PatientVitalsignRepository repository;
 
-    public PatientVitalsign SaveVitalsign(PatientVitalsign patientVitalsign) {
+    public PatientVitalsign Save(PatientVitalsign patientVitalsign){
         return repository.save(patientVitalsign);
     }
 
-    public List<PatientVitalsign> SaveAll(List<PatientVitalsign> patientVitalsigns){
-        return repository.saveAll(patientVitalsigns);
-    }
-
-    public PatientVitalsign UpdateVitalsign(PatientVitalsign patientVitalsign) {
+    public PatientVitalsign UpdateVitalsign(int id, PatientVitalsign patientVitalsign) {
         return repository.save(patientVitalsign);
     }
 
