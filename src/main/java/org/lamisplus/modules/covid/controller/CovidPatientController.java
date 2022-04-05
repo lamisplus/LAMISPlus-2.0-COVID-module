@@ -16,13 +16,13 @@ public class CovidPatientController {
 
     private final PatientService service;
 
-    @PostMapping("/add")
+    @PostMapping("/")
     public Patient AddPatient(@RequestBody Patient patient){
         return service.SavePatient(patient);
     }
 
-    @PostMapping("/update")
-    public Patient UpdatePatient(@RequestBody Patient patient){
+    @PutMapping("/{id}")
+    public Patient UpdatePatient(@PathVariable Long id, @RequestBody Patient patient){
         return service.UpdatePatient(patient);
     }
 
@@ -31,7 +31,7 @@ public class CovidPatientController {
         return service.GetAllPatients();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String DeletePatient(@PathVariable Integer id){
         return service.DeletePatient(id);
     }

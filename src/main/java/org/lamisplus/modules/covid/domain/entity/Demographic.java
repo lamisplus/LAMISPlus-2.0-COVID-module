@@ -16,18 +16,20 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "covid_patient")
-public class Patient {
+@Table(name = "covid_demographic")
+public class Demographic {
     @Id
     @GeneratedValue
     private int id;
     private String uuid;
-    private String first_name;
-    private String mid_name;
-    private String last_name;
-    private String participant_id;
-    private int gender;
+    private int sex;
     private Date dob;
-    private String phone;
-    private int status;
+    private int preterm;
+    private int low_birth_weight;
+    private float weight;
+    private int race;
+    private int hw_in_contact;
+    private int pregnant_current;
+    private int pregnant_within_21;
+    private int pregnant_within_42;
 }

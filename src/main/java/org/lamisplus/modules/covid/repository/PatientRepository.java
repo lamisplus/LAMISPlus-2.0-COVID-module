@@ -16,21 +16,18 @@ public class PatientRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public Patient save(Patient patient) {
-        jdbcTemplate.update("INSERT INTO covid_patient (uuid, name, sex, dob, preterm, low_birth_weight, weight," +
-                        "race, hw_in_contact, pregnant_current, pregnant_within_21, pregnant_withn_42) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO covid_patient (uuid, first_name, mid_name, " +
+                        "last_name, participant_id, gender, dob, phone) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 UUID.randomUUID().toString(),
-                patient.getName(),
-                patient.getSex(),
+                patient.getFirst_name(),
+                patient.getMid_name(),
+                patient.getLast_name(),
+                patient.getParticipant_id(),
+                patient.getGender(),
                 patient.getDob(),
-                patient.getPreterm(),
-                patient.getLow_birth_weight(),
-                patient.getWeight(),
-                patient.getRace(),
-                patient.getHw_in_contact(),
-                patient.getPregnant_current(),
-                patient.getPregnant_within_21(),
-                patient.getPregnant_within_42());
+                patient.getPhone()
+        );
         return findByUUID(patient.getUuid()).orElse(null);
     }
 
@@ -38,18 +35,13 @@ public class PatientRepository {
         jdbcTemplate.update("UPDATE covid_patient set uuid=?, name=?, sex=?, dob=?, preterm=?, low_birth_weight=?, weight=?," +
                         "race=?, hw_in_contact=?, pregnant_current=?, pregnant_within_21=?, pregnant_withn_42=? where id=? ",
                 patient.getUuid(),
-                patient.getName(),
-                patient.getSex(),
+                patient.getFirst_name(),
+                patient.getMid_name(),
+                patient.getLast_name(),
+                patient.getParticipant_id(),
+                patient.getGender(),
                 patient.getDob(),
-                patient.getPreterm(),
-                patient.getLow_birth_weight(),
-                patient.getWeight(),
-                patient.getRace(),
-                patient.getHw_in_contact(),
-                patient.getPregnant_current(),
-                patient.getPregnant_within_21(),
-                patient.getPregnant_within_42(),
-                patient.getId()
+                patient.getPhone()
         );
         return findByUUID(patient.getUuid());
     }

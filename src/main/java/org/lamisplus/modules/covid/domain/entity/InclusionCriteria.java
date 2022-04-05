@@ -8,7 +8,6 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -16,18 +15,12 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "covid_patient")
-public class Patient {
+public class InclusionCriteria {
     @Id
     @GeneratedValue
     private int id;
     private String uuid;
-    private String first_name;
-    private String mid_name;
-    private String last_name;
-    private String participant_id;
-    private int gender;
-    private Date dob;
-    private String phone;
-    private int status;
+    private int covid_signs;
+    private int covid_test;
+    private Date test_date;
 }

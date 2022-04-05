@@ -15,13 +15,13 @@ import java.util.List;
 public class CovidPatientReinfectionController {
     private final PatientReinfectionService patientReinfectionService;
     
-    @PostMapping("/save")
+    @PostMapping("")
     public PatientReinfection SavePatientReinfection(@RequestBody PatientReinfection reinfection){
         return patientReinfectionService.SaveReinfection(reinfection);
     }
 
-    @PostMapping("/update")
-    public PatientReinfection UpdatePatientReinfection(@RequestBody PatientReinfection reinfection){
+    @PutMapping("/{id}")
+    public PatientReinfection UpdatePatientReinfection(@PathVariable Long id, @RequestBody PatientReinfection reinfection){
         return patientReinfectionService.UpdateReinfection(reinfection);
     }
 
@@ -30,7 +30,7 @@ public class CovidPatientReinfectionController {
         return patientReinfectionService.GetbyPatientId(patient_id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String DeletePatientReinfection(@PathVariable Integer id){
         return patientReinfectionService.DeleteReinfection(id);
     }

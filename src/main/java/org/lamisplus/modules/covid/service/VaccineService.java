@@ -1,10 +1,7 @@
 package org.lamisplus.modules.covid.service;
 
 import lombok.RequiredArgsConstructor;
-import org.lamisplus.modules.covid.domain.entity.Patient;
-import org.lamisplus.modules.covid.domain.entity.PatientVaccine;
 import org.lamisplus.modules.covid.domain.entity.Vaccine;
-import org.lamisplus.modules.covid.repository.PatientRepository;
 import org.lamisplus.modules.covid.repository.VaccineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

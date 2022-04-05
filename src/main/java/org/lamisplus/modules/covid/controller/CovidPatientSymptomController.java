@@ -17,13 +17,13 @@ import java.util.List;
 public class CovidPatientSymptomController {
     private final PatientSymptomService patientSymptomService;
 
-    @PostMapping("/save")
+    @PostMapping("")
     public List<PatientSymptom> SavePatientComorbidities(@RequestBody List<PatientSymptom> symptoms){
         return patientSymptomService.SaveAll(symptoms);
     }
 
-    @PostMapping("/update")
-    public PatientSymptom UpdatePatientSymptom(@RequestBody PatientSymptom symptom){
+    @PutMapping("/{id}")
+    public PatientSymptom UpdatePatientSymptom(@PathVariable Long id, @RequestBody PatientSymptom symptom){
         return patientSymptomService.UpdateSymptom(symptom);
     }
 
@@ -32,7 +32,7 @@ public class CovidPatientSymptomController {
         return patientSymptomService.GetbyPatientId(patient_id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String DeletePatientSymptom(@PathVariable Integer id){
         return patientSymptomService.DeleteSymptom(id);
     }
