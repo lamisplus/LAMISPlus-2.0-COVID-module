@@ -53,9 +53,9 @@ public class DemographicRepository {
         return findByUUID(demographic.getUuid());
     }
 
-    public List<Demographic> findAll() {
-        return jdbcTemplate.query("SELECT * FROM covid_demographic",
-                new BeanPropertyRowMapper<Demographic>(Demographic.class));
+    public List<Demographic> findAllByPatientId(int patient_id) {
+        return jdbcTemplate.query("SELECT * FROM covid_demographic where patient_id=? ",
+                new BeanPropertyRowMapper<Demographic>(Demographic.class), patient_id);
     }
 
     public String delete(int id){

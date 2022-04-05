@@ -2,19 +2,15 @@ package org.lamisplus.modules.covid.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lamisplus.modules.covid.domain.entity.Patient;
 import org.lamisplus.modules.covid.domain.entity.PatientStatus;
-import org.lamisplus.modules.covid.service.PatientService;
 import org.lamisplus.modules.covid.service.PatientStatusService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/covid/patients")
-public class PatientStatusController {
+@RequestMapping("api/covid/patientstatus")
+public class CovidPatientStatusController {
     private final PatientStatusService service;
 
     @PostMapping("/")

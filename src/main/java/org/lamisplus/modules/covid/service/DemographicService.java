@@ -1,13 +1,15 @@
 package org.lamisplus.modules.covid.service;
 
+import lombok.RequiredArgsConstructor;
 import org.lamisplus.modules.covid.domain.entity.Demographic;
-import org.lamisplus.modules.covid.domain.entity.Patient;
 import org.lamisplus.modules.covid.repository.DemographicRepository;
-import org.lamisplus.modules.covid.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class DemographicService {
     @Autowired
     private DemographicRepository repository;
@@ -20,8 +22,8 @@ public class DemographicService {
         return repository.save(demographic);
     }
 
-    public List<Demographic> GetDemographic(Long PatientId) {
-        return repository.findAll();
+    public List<Demographic> GetDemographics(int PatientId) {
+        return repository.findAllByPatientId(PatientId);
     }
 
     public String DeleteDemographic(int id) {

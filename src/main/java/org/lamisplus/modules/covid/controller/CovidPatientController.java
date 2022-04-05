@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("api/covid/patients")
 public class CovidPatientController {
-
     private final PatientService service;
 
     @PostMapping("/")
