@@ -23,7 +23,7 @@ public class PatientVaccineRepository {
                 vaccine.getPatient_id(),
                 vaccine.getVaccine_date(),
                 vaccine.getDose(),
-                vaccine.getNumber());
+                vaccine.getDose_number());
         return findByUUID(vaccine.getUuid()).orElse(null);
     }
 
@@ -43,7 +43,7 @@ public class PatientVaccineRepository {
                 vaccine.getPatient_id(),
                 vaccine.getVaccine_date(),
                 vaccine.getDose(),
-                vaccine.getNumber(),
+                vaccine.getDose_number(),
                 vaccine.getId()
         );
         return findByUUID(vaccine.getUuid());
