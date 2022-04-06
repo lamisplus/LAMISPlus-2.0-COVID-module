@@ -47,7 +47,7 @@ const UserRegistration = (props) => {
   let history = useHistory();
   const classes = useStyles();
 
-  const [values, setValues] = useState({address: "",dob: "",first_name: "",gender: "",last_name: "",mid_name: "",participant_id: "",phone: "",status:"" });
+  const [values, setValues] = useState({address: "",dob: "",first_name: "",gender: "",last_name: "",mid_name: "",participant_id: "", phone: "",status:"" });
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
@@ -209,8 +209,9 @@ const UserRegistration = (props) => {
                               id="dateRegistration"
                               value={values.regDate}
                               onChange={value1 =>
-                                setValues({ ...values, dob: moment(value1).format("DD-MM-YYYY") })
+                                setValues({ ...values, dob: moment(value1).format("YYYY-MM-DD") })
                               }
+                              
                                   max={new Date()}
                           />
                               {values.dob ==="Invalid date" ? (
@@ -287,7 +288,9 @@ const UserRegistration = (props) => {
                   <span style={{ textTransform: "capitalize" }}>Saving...</span>
                 )}
               </MatButton>
-           
+              <Link
+                  to ={{pathname: "/" }}
+              >
               <MatButton
                 variant="contained"
                 className={classes.button}
@@ -296,6 +299,7 @@ const UserRegistration = (props) => {
               >
                 <span style={{ textTransform: "capitalize" }}>Cancel</span>
               </MatButton>
+              </Link>
                 </form>
               </div>
             </div>

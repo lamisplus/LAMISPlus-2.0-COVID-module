@@ -49,7 +49,7 @@ const EditPatient = (props) => {
   const patientObj = history.location && history.location.state ? history.location.state.patientObj : {}
   const classes = useStyles();
 
-  const [values, setValues] = useState({address: "",dob: "",first_name: "",gender: "",last_name: "",mid_name: "",participant_id: "",phone: "",status:"" });
+  const [values, setValues] = useState(history.location && history.location.state ? history.location.state.patientObj : {});
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
@@ -59,6 +59,7 @@ const EditPatient = (props) => {
   const handleInputChange = e => {
     setValues ({...values,  [e.target.name]: e.target.value});
   }
+  console.log(values)
       /*****  Validation */
       const validate = () => {
         let temp = { ...errors };
@@ -214,8 +215,9 @@ const EditPatient = (props) => {
                               id="dateRegistration"
                               value={values.regDate}
                               onChange={value1 =>
-                                setValues({ ...values, dob: moment(value1).format("DD-MM-YYYY") })
+                                setValues({ ...values, dob: moment(value1).format("YYYY-MM-DD") })
                               }
+                              defaultValue={new Date(new Date(moment(values.dob, "YYYY-MM-DD").format("MM/DD/YYYY") ))}
                                   max={new Date()}
                           />
                               {values.dob ==="Invalid date" ? (
@@ -292,7 +294,9 @@ const EditPatient = (props) => {
                   <span style={{ textTransform: "capitalize" }}>Saving...</span>
                 )}
               </MatButton>
-           
+              <Link
+                  to ={{pathname: "/" }}
+              >
               <MatButton
                 variant="contained"
                 className={classes.button}
@@ -301,6 +305,7 @@ const EditPatient = (props) => {
               >
                 <span style={{ textTransform: "capitalize" }}>Cancel</span>
               </MatButton>
+              </Link>
                 </form>
               </div>
             </div>

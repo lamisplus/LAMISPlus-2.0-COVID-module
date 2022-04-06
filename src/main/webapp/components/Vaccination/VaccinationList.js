@@ -267,7 +267,7 @@ const SyncList = (props) => {
                                              
                                                 <MenuItem  style={{ color:"#000 !important"}}>                      
                                                     <Link
-                                                        to={{pathname: "/patient-detail", state: { hospitalNumber: row.hospitalNumber  }}}>
+                                                        to={{pathname: "/patient-dashboard", state: { patientObj: row  }}}>
                                                         <MdDashboard size="15" />{" "}<span style={{color: '#000'}}>Patient Dashboard</span>
                                                 </Link>                               
                                                 </MenuItem>                                
