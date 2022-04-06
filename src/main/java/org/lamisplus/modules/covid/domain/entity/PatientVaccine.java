@@ -25,5 +25,5 @@ public class PatientVaccine {
     private int patient_id;
     private Date vaccine_date;
     private int dose;
-    private int number;
+    private int dose_number;
 }

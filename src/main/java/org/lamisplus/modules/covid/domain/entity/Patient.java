@@ -30,4 +30,5 @@ public class Patient {
     private Date dob;
     private String phone;
     private int status;
+    private String address;
 }
