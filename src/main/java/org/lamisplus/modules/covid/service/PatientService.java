@@ -19,7 +19,7 @@ public class PatientService {
     }
 
     public Patient UpdatePatient(int id, Patient patient){
-        return repository.save(patient);
+        return repository.update(id, patient);
     }
 
     public List<Patient> GetAllPatients() {

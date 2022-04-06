@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -17,8 +16,8 @@ public class PatientRepository {
 
     public Patient save(Patient patient) {
         jdbcTemplate.update("INSERT INTO covid_patient (uuid, first_name, mid_name, " +
-                        "last_name, participant_id, gender, dob, phone) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                        "last_name, participant_id, gender, dob, phone, address) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 UUID.randomUUID().toString(),
                 patient.getFirst_name(),
                 patient.getMid_name(),
@@ -26,22 +25,24 @@ public class PatientRepository {
                 patient.getParticipant_id(),
                 patient.getGender(),
                 patient.getDob(),
-                patient.getPhone()
+                patient.getPhone(),
+                patient.getAddress()
         );
-        return findByUUID(patient.getUuid()).orElse(null);
+        return findByUUID(patient.getUuid());
     }
 
-    public Optional<Patient> update(Patient patient) {
-        jdbcTemplate.update("UPDATE covid_patient set uuid=?, name=?, sex=?, dob=?, preterm=?, low_birth_weight=?, weight=?," +
-                        "race=?, hw_in_contact=?, pregnant_current=?, pregnant_within_21=?, pregnant_withn_42=? where id=? ",
-                patient.getUuid(),
+    public Patient update(int id, Patient patient) {
+        jdbcTemplate.update("UPDATE covid_patient set first_name=?, mid_name=?, " +
+                        "last_name=?, participant_id=?, gender=?, dob=?, phone=?, address=? where id=? ",
                 patient.getFirst_name(),
                 patient.getMid_name(),
                 patient.getLast_name(),
                 patient.getParticipant_id(),
                 patient.getGender(),
                 patient.getDob(),
-                patient.getPhone()
+                patient.getPhone(),
+                patient.getAddress(),
+                id
         );
         return findByUUID(patient.getUuid());
     }
@@ -52,12 +53,12 @@ public class PatientRepository {
     }
 
     public String delete(int id){
-        jdbcTemplate.update("delete from patient where id=?", id);
+        jdbcTemplate.update("delete from covid_patient where id=? ", id);
         return id + " deleted successfully";
     }
 
-    public Optional<Patient> findByUUID(String uuid) {
-        return jdbcTemplate.query("SELECT * FROM covid_patient where uuid = ?",
-                new BeanPropertyRowMapper<Patient>(Patient.class), uuid).stream().findFirst();
+    public Patient findByUUID(String uuid) {
+        return jdbcTemplate.query("SELECT * FROM covid_patient where uuid = ? ",
+                new BeanPropertyRowMapper<Patient>(Patient.class), uuid).stream().findFirst().orElse(null);
     }
 }
