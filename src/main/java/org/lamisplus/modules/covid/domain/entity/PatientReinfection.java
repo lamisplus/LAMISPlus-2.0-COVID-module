@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -23,10 +24,10 @@ public class PatientReinfection {
     private int id;
     private String uuid;
     private int patient_id;
-    private Date visit_date;
+    private LocalDate visit_date;
     private int previous_episode;
-    private Date onset_date;
+    private LocalDate onset_date;
     private int confirmed;
     private int admitted;
-    private Date admission_date;
+    private LocalDate admission_date;
 }

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -23,7 +24,7 @@ public class PatientVaccine {
     private int id;
     private String uuid;
     private int patient_id;
-    private Date vaccine_date;
+    private LocalDate vaccine_date;
     private int dose;
     private int dose_number;
 }

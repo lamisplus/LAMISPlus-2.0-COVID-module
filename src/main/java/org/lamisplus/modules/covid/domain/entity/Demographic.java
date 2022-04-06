@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -23,7 +24,7 @@ public class Demographic {
     private int id;
     private String uuid;
     private int sex;
-    private Date dob;
+    private LocalDate dob;
     private int preterm;
     private int low_birth_weight;
     private float weight;

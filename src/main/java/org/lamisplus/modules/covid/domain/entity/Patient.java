@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -27,7 +28,7 @@ public class Patient {
     private String last_name;
     private String participant_id;
     private int gender;
-    private Date dob;
+    private LocalDate dob;
     private String phone;
     private int status;
     private String address;

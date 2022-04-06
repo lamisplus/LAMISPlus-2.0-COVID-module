@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,8 +25,8 @@ public class PatientVitalsign {
     private String uuid;
     private int patient_id;
     private int visit_date;
-    private Date symptom_date;
-    private Date admission_date;
+    private LocalDate symptom_date;
+    private LocalDate admission_date;
     private int transfer_in;
     private float temp;
     private float heart_rate;
