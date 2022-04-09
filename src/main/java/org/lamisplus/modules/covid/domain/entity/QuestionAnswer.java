@@ -8,7 +8,8 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,13 +17,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class QuestionAnswer {
     @Id
-    @GeneratedValue
-    private int id;
-    private String uuid;
-    private String name;
-    private String category;
-    private String datatype;
-    private List<QuestionResponse> responses;
+    private int question_id;
+    private String answer;
 }

@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -16,13 +16,15 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class Encounter {
     @Id
     @GeneratedValue
+
     private int id;
     private String uuid;
-    private String name;
+    private int patient_id;
+    private LocalDate visit_date;
     private String category;
-    private String datatype;
-    private List<QuestionResponse> responses;
+    private String location;
+    private List<QuestionAnswer> questionAnswers;
 }
