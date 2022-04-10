@@ -30,6 +30,7 @@ public class Patient {
     private int gender;
     private LocalDate dob;
     private String phone;
-    private int status;
+    private String current_status;
+    private String vaccination_status;
     private String address;
 }

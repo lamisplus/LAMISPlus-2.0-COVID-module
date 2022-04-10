@@ -16,8 +16,8 @@ public class PatientRepository {
 
     public Patient save(Patient patient) {
         jdbcTemplate.update("INSERT INTO covid_patient (uuid, first_name, mid_name, " +
-                        "last_name, participant_id, gender, dob, phone, address) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        "last_name, participant_id, gender, dob, phone, address, vaccination_status) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 UUID.randomUUID().toString(),
                 patient.getFirst_name(),
                 patient.getMid_name(),
@@ -26,14 +26,15 @@ public class PatientRepository {
                 patient.getGender(),
                 patient.getDob(),
                 patient.getPhone(),
-                patient.getAddress()
+                patient.getAddress(),
+                patient.getVaccination_status()
         );
         return findByUUID(patient.getUuid());
     }
 
     public Patient update(int id, Patient patient) {
         jdbcTemplate.update("UPDATE covid_patient set first_name=?, mid_name=?, " +
-                        "last_name=?, participant_id=?, gender=?, dob=?, phone=?, address=? where id=? ",
+                        "last_name=?, participant_id=?, gender=?, dob=?, phone=?, address=?, vaccination_status=? where id=? ",
                 patient.getFirst_name(),
                 patient.getMid_name(),
                 patient.getLast_name(),
@@ -42,6 +43,7 @@ public class PatientRepository {
                 patient.getDob(),
                 patient.getPhone(),
                 patient.getAddress(),
+                patient.getVaccination_status(),
                 id
         );
         return findByUUID(patient.getUuid());

@@ -15,12 +15,8 @@ import javax.persistence.Table;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "covid_patientstatus")
 public class PatientStatus {
     @Id
-    @GeneratedValue
-    private int id;
-    private String uuid;
     private int patient_id;
-    private int status_id;
+    private String current_status;
 }

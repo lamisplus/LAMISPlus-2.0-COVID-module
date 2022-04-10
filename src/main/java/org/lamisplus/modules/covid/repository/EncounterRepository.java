@@ -2,7 +2,6 @@ package org.lamisplus.modules.covid.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.lamisplus.modules.covid.domain.entity.Encounter;
-import org.lamisplus.modules.covid.domain.entity.PatientVaccine;
 import org.lamisplus.modules.covid.domain.entity.QuestionAnswer;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
