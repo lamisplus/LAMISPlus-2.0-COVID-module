@@ -99,8 +99,9 @@ const ReInfection = (props) => {
           )
               .then(response => {
                   setSaving(false);
-                  toast.success("Patient Inclusion Criteria Successful");
+                  toast.success("Record save successful");
                   props.toggle()
+                  props.getReinfectionHistory()
                   //history.push("/")
 
               })

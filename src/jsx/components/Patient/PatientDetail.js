@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import {   Tab, Tabs, } from "react-bootstrap";
 import AddmissionHome from './../Admission/AddmissionHome';
 import PatientChart from './../Patient/PatientChart/Index'
+import PatientVaccinationHistory from './../Vaccination/VaccinationHistory'
 
 const styles = theme => ({
   root: {

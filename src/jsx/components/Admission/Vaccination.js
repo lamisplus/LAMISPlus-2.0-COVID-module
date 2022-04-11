@@ -99,7 +99,8 @@ const Viccination = (props) => {
           )
               .then(response => {
                   setSaving(false);
-                  toast.success("Patient Viccination Status Save Successful");
+                  toast.success("Patient Record Save Successful");
+                  props.getVaccinationHistory()
                   props.toggle()
                   //history.push("/")
 

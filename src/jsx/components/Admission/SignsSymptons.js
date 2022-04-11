@@ -100,6 +100,7 @@ const SignsSymptons = (props) => {
               .then(response => {
                   setSaving(false);
                   toast.success("Patient Inclusion Criteria Successful");
+                  props.getSignsSymptomsHistory()
                   props.toggle()
                   //history.push("/")
 

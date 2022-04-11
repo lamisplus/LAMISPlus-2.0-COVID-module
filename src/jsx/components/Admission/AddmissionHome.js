@@ -86,6 +86,16 @@ function AddmissionHome(props) {
     const ChronicMedicationToggle = () => setChronicMedicationModal(!chronicMedicationModal);
     const [supportiveCareModal, setSupportiveCareModal] = useState(false);
     const SupportiveCareToggle = () => setSupportiveCareModal(!supportiveCareModal);
+    const [viccinationHistory, setViccinationHistory] = useState([])
+    const [inclusionHistory, setInclusionHistory] = useState([])
+    const [demograhicHistory, setDemographicHistory] = useState([])
+    const [vitalHistory, setVitalHistory] = useState([])
+    const [comobitieHistory, setComobitieHistory] = useState([])
+    const [reinfectionHistory, setReinfectionHistory] = useState([])
+    const [signsSymptomsHistory, setSignsSymptomsHistory] = useState([])
+    const [chronicMedicationHistory, setChronicMedicationHistory] = useState([])
+    const [medicationHistory, setMedicationHistory] = useState([])
+    const [supportiveCarenHistory, setSupportiveCareHistory] = useState([])
 
     const loadInclusionCriteriaModal =()=> {
           setInclusionCriteriaModal(!inclusionCriteriaModal)
@@ -118,24 +128,137 @@ function AddmissionHome(props) {
       setSupportiveCareModal(!supportiveCareModal)
     }
     useEffect(() => {
-      getAdmissionCategory()
+        getVaccinationHistory()
+        getInclusionHistory()
+        getDemographicHistory()
+        getVitalsHistory()
+        getComobitieHistory()
+        getReinfectionHistory()
+        getSignsSymptomsHistory()
+        getChronicMedicationHistory()
+        getMedicationHistory()
+        getSupportiveCareHistory()
     },[])
-    const getAdmissionCategory = (category) => {
+    const getVaccinationHistory = (category) => {
       axios
-        .get(`${baseUrl}covid/encounters/1/VACCINATION_STATUS`,
+        .get(`${baseUrl}covid/encounters/${patientObj.id}/VACCINATION_STATUS`,
         { headers: {"Authorization" : `Bearer ${token}`} }
         )
         .then((response) => {
-          resultData=response.data
-            //setVaccination(response.data);
-            //setValues(response.data)
+            setInclusionHistory(response.data)
         })
         .catch((error) => {    
         }); 
         //return resultData
     }
-  console.log(resultData)
-
+    const getInclusionHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/INCLUSION_CRITERIA`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setInclusionHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getDemographicHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/DEMOGRAPHICS`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setDemographicHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getVitalsHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/ADMISSION_VITAL_SIGNS`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setVitalHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getComobitieHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/COMORBIDITIES`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setComobitieHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getReinfectionHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/REINFECTION`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setReinfectionHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getChronicMedicationHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/CHRONIC_MEDICATION`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setChronicMedicationHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getSignsSymptomsHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/SIGNS_AND_SYMPTOMS`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setSignsSymptomsHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getMedicationHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/MEDICATION`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setMedicationHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
+    const getSupportiveCareHistory = () => {
+        axios
+            .get(`${baseUrl}covid/encounters/${patientObj.id}/SUPPORTIVE_CARE`,
+                { headers: {"Authorization" : `Bearer ${token}`} }
+            )
+            .then((response) => {
+                setSupportiveCareHistory(response.data)
+            })
+            .catch((error) => {
+            });
+        //return resultData
+    }
 
   return (
     <div className={classes.root}>
@@ -152,9 +275,8 @@ function AddmissionHome(props) {
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() =>loadInclusionCriteriaModal()}/>
                     <List divided verticalAlign='middle'>
-                    {resultData!=="" && resultData.map((value) => (
+                    {inclusionHistory!=="" && inclusionHistory.map((value) => (
                           <>
-                          
                             <List.Item>
                               <List.Content floated='right'>
                               <Label>
@@ -162,7 +284,7 @@ function AddmissionHome(props) {
                               </Label>
                               </List.Content>
                               <Icon name='info circle'  />
-                              <List.Content>Lena</List.Content>
+                                <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
                             </List.Item>
                           </>
                     ))
@@ -177,6 +299,22 @@ function AddmissionHome(props) {
                         DEMOGRAPHICS 
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => DemographicModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {demograhicHistory!=="" && demograhicHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                        </List.Item>
+                        </>
+                    ))
+                    }
+                    </List>
                 </Segment>
                 </Grid.Column>
                 <Grid.Column>
@@ -184,8 +322,23 @@ function AddmissionHome(props) {
                     <Label as='a' color='brown' ribbon>
                     VACCINATION 
                     </Label>
-                    <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ViccinationModal()}/>
-
+                        <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ViccinationModal()}/>
+                            <List divided verticalAlign='middle'>
+                                {viccinationHistory!=="" && viccinationHistory.map((value) => (
+                                    <>
+                                    <List.Item>
+                                    <List.Content floated='right'>
+                                <Label>
+                                View
+                                </Label>
+                                </List.Content>
+                                <Icon name='info circle'  />
+                                <List.Content>Date Vaccinated   {"  " +value.visit_date}</List.Content>
+                                </List.Item>
+                                </>
+                        ))
+                        }
+                        </List>
                 </Segment>
                 </Grid.Column>
 
@@ -195,6 +348,22 @@ function AddmissionHome(props) {
                         VITAL SIGNS 
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => VitalSignModal()}/>
+                        <List divided verticalAlign='middle'>
+                                {vitalHistory!=="" && vitalHistory.map((value) => (
+                                    <>
+                                    <List.Item>
+                                    <List.Content floated='right'>
+                                    <Label>
+                                    View
+                                    </Label>
+                                </List.Content>
+                                <Icon name='info circle'  />
+                                <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                                </List.Item>
+                                </>
+                            ))
+                            }
+                        </List>
                 </Segment>
                 </Grid.Column>
                 <Grid.Column>
@@ -202,7 +371,23 @@ function AddmissionHome(props) {
                     <Label as='a' color='purple' ribbon>
                     CO-MORBIDITIE
                     </Label>
-                    <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ComorbitieModal()}/> 
+                    <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ComorbitieModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {comobitieHistory!=="" && comobitieHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                            </List.Item>
+                            </>
+                            ))
+                            }
+                        </List>
                 </Segment>
                 </Grid.Column>
 
@@ -212,6 +397,22 @@ function AddmissionHome(props) {
                     REINFECTION
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ReInfectionModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {reinfectionHistory!=="" && reinfectionHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                        </List.Item>
+                        </>
+                        ))
+                        }
+                        </List>
                 </Segment>
                 </Grid.Column>
                 <Grid.Column>
@@ -221,6 +422,22 @@ function AddmissionHome(props) {
                    
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => SignsSymptomsModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {signsSymptomsHistory!=="" && signsSymptomsHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                        </List.Item>
+                        </>
+                    ))
+                    }
+                    </List>
                 </Segment>
                 </Grid.Column>
 
@@ -230,6 +447,22 @@ function AddmissionHome(props) {
                     CHRONIC MEDICATION 
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ChronicMedicationModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {chronicMedicationHistory!=="" && chronicMedicationHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                        </List.Item>
+                        </>
+                    ))
+                    }
+                    </List>
                 </Segment>
                 </Grid.Column>
                 <Grid.Column>
@@ -238,6 +471,22 @@ function AddmissionHome(props) {
                     MEDICATION  
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => MedicationModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {medicationHistory!=="" && medicationHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                        </List.Item>
+                        </>
+                    ))
+                    }
+                    </List>
                 </Segment>
                 </Grid.Column>
 
@@ -247,6 +496,22 @@ function AddmissionHome(props) {
                     SUPPORTIVE CARE 
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1"  style={{cursor: 'pointer'}} onClick={() => SupportiveCareModal()}/>
+                        <List divided verticalAlign='middle'>
+                            {supportiveCarenHistory!=="" && supportiveCarenHistory.map((value) => (
+                                <>
+                                <List.Item>
+                                <List.Content floated='right'>
+                            <Label>
+                            View
+                            </Label>
+                            </List.Content>
+                            <Icon name='info circle'  />
+                            <List.Content>Encounter Date   {"  " +value.visit_date}</List.Content>
+                        </List.Item>
+                        </>
+                    ))
+                    }
+                    </List>
                 </Segment>
                 </Grid.Column>
             </Grid>
@@ -254,16 +519,16 @@ function AddmissionHome(props) {
          </CardContent>
       </Card>
 
-      <InclusionCriteria toggle={inclusionCriteriaToggle} showModal={inclusionCriteriaModal} patientObj={patientObj}/>
-      <Demographic toggle={demographicToggle} showModal={demographicModal} patientObj={patientObj} />
-      <Viccination toggle={ViccinationToggle} showModal={viccinationModal} patientObj={patientObj} />
-      <VitalSign toggle={VitalSignToggle} showModal={vitalSignModal} patientObj={patientObj} />
-      <Comorbitie toggle={ComorbitieToggle} showModal={comorbitieModal} patientObj={patientObj} />
-      <ReInfection toggle={ReinfectionToggle} showModal={reInfectionModal} patientObj={patientObj} />
-      <ChronicMedication toggle={ChronicMedicationToggle} showModal={chronicMedicationModal} patientObj={patientObj} />
-      <Medication toggle={MedicationToggle} showModal={medicationModal} patientObj={patientObj} />
-      <SignsSymptoms toggle={SignsSymptomsToggle} showModal={signsSymptomsModal} patientObj={patientObj} />
-      <SupportiveCare toggle={SupportiveCareToggle} showModal={supportiveCareModal} patientObj={patientObj} />
+      <InclusionCriteria toggle={inclusionCriteriaToggle} showModal={inclusionCriteriaModal} patientObj={patientObj} getInclusionHistory={getInclusionHistory}/>
+      <Demographic toggle={demographicToggle} showModal={demographicModal} patientObj={patientObj} getDemographicHistory={getDemographicHistory}/>
+      <Viccination toggle={ViccinationToggle} showModal={viccinationModal} patientObj={patientObj} getVaccinationHistory={getVaccinationHistory}/>
+      <VitalSign toggle={VitalSignToggle} showModal={vitalSignModal} patientObj={patientObj} getVitalsHistory={getVitalsHistory}/>
+      <Comorbitie toggle={ComorbitieToggle} showModal={comorbitieModal} patientObj={patientObj} getComobitieHistory={getComobitieHistory}/>
+      <ReInfection toggle={ReinfectionToggle} showModal={reInfectionModal} patientObj={patientObj} getReinfectionHistory={getReinfectionHistory}/>
+      <ChronicMedication toggle={ChronicMedicationToggle} showModal={chronicMedicationModal} patientObj={patientObj} getChronicMedicationHistory={getChronicMedicationHistory}/>
+      <Medication toggle={MedicationToggle} showModal={medicationModal} patientObj={patientObj} getMedicationHistory={getMedicationHistory} />
+      <SignsSymptoms toggle={SignsSymptomsToggle} showModal={signsSymptomsModal} patientObj={patientObj} getSignsSymptomsHistory={getSignsSymptomsHistory}/>
+      <SupportiveCare toggle={SupportiveCareToggle} showModal={supportiveCareModal} patientObj={patientObj} getSupportiveCareHistory={getSupportiveCareHistory} />
     </div>
   );
 }

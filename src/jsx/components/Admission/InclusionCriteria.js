@@ -99,7 +99,8 @@ const InclusionCriteria = (props) => {
           )
               .then(response => {
                   setSaving(false);
-                  toast.success("Patient Inclusion Criteria Save Successful");
+                  toast.success("Patient record save successful");
+                  props.getInclusionHistory()
                   props.toggle()
                   //history.push("/")
 

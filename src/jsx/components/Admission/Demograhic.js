@@ -100,6 +100,7 @@ const Demograhic = (props) => {
               .then(response => {
                   setSaving(false);
                   toast.success("Patient Demographics Save Successful");
+                  props.getDemographicHistory()
                   props.toggle()
                   //history.push("/")
 

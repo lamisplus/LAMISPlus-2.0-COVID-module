@@ -100,6 +100,7 @@ const SupportiveCare = (props) => {
               .then(response => {
                   setSaving(false);
                   toast.success("Patient Inclusion Criteria Successful");
+                  props.getSupportiveCareHistory()
                   props.toggle()
                   //history.push("/")
 

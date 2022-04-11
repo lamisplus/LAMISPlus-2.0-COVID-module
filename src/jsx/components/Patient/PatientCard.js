@@ -84,15 +84,15 @@ function PatientCard(props) {
 
   const CurrentStatus = (currentStatus)=>{
     if(currentStatus==="4"){
-        return (<Label color="blue" size="mini">Current Status: Admitted</Label>);
+        return (<Label color="blue" size="mini">Current Status: <b>Admitted</b></Label>);
     }else if(currentStatus==="5"){
-        return (<Label color="olive" size="mini">Current Status:vICU</Label>);
+        return (<Label color="olive" size="mini">Current Status: <b>ICU</b></Label>);
     }else if(currentStatus==="6"){
-        return (<Label color="teal" size="mini">Current Status:Discharge</Label>);
+        return (<Label color="teal" size="mini">Current Status: <b>Discharge</b></Label>);
     }else if(currentStatus==="7"){
-        return (<Label color="red" size="mini">Current Status: Dead</Label>);
+        return (<Label color="red" size="mini">Current Status: <b>Dead</b></Label>);
     }else {
-        return   (<Label color="green" size="mini">Current Status: Active</Label>);
+        return   (<Label color="green" size="mini">Current Status: <b>Active</b></Label>);
     }
 
 }

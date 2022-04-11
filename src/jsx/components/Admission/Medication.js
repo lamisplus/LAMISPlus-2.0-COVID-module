@@ -101,6 +101,7 @@ const Medication = (props) => {
                   setSaving(false);
                   toast.success("Patient Inclusion Criteria Successful");
                   props.toggle()
+                  props.getMedicationHistory()
                   //history.push("/")
 
               })

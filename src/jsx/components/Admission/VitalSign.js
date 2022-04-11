@@ -100,6 +100,7 @@ const VitalSigns = (props) => {
               .then(response => {
                   setSaving(false);
                   toast.success("Record save successful");
+                  props.getVitalsHistory()
                   props.toggle()
                   //history.push("/")
 

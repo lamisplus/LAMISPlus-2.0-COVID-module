@@ -99,7 +99,8 @@ const Commorbitie = (props) => {
           )
               .then(response => {
                   setSaving(false);
-                  toast.success("Patient Inclusion Criteria Successful");
+                  toast.success("Record save successful");
+                  props.getComobitieHistory()
                   props.toggle()
                   //history.push("/")
 
