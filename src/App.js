@@ -4,16 +4,21 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import RegisterPatient from './main/webapp/components/Patient/RegisterPatient'
-import EditPatient from './main/webapp/components/Patient/EditPatient'
-import Home from './main/webapp/components/Home'
-import PatientDetail from './main/webapp/components/Patient/PatientDetail'
+
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
+import "./css/style.css";
+
+import RegisterPatient from './jsx/components/Patient/RegisterPatient'
+import Home from './jsx/components/Home'
+import EditPatient from './jsx/components/Patient/EditPatient'
+import PatientDetail from './jsx/components/Patient/PatientDetail'
+
 
 export default function App() {
   return (
-    <Router>
+
       <div>
       <ToastContainer />
         {/* A <Switch> looks through its children <Route>s and
@@ -36,15 +41,10 @@ export default function App() {
           
         </Switch>
       </div>
-    </Router>
+ 
   );
 }
 
-// function RegisterPatientPage() {
-//   return <RegisterPatient />;
-// }
-// function Patient() {
-//   return <PatientDetail />;
-// }
+
 
 
