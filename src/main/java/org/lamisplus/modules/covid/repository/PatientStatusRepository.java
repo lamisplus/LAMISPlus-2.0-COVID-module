@@ -2,6 +2,7 @@ package org.lamisplus.modules.covid.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.lamisplus.modules.covid.domain.entity.CodeSet;
+import org.lamisplus.modules.covid.domain.entity.Patient;
 import org.lamisplus.modules.covid.domain.entity.PatientStatus;
 import org.lamisplus.modules.covid.domain.entity.QuestionAnswer;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -41,19 +42,12 @@ public class PatientStatusRepository {
     }
 
     public List<CodeSet> FindVaccinationStatusCodesets() {
-        List<CodeSet> codeSets = new ArrayList<>();
-        codeSets.add(new CodeSet(1, "Not Vaccinated", "VACCINATION_STATUS"));
-        codeSets.add(new CodeSet(2, "Partially Vaccinated", "VACCINATION_STATUS"));
-        codeSets.add(new CodeSet(3, "Fully Vaccinated", "VACCINATION_STATUS"));
-        return codeSets;
+        return jdbcTemplate.query("SELECT * FROM covid_codeset where category = 'VACCINATION_STATUS' ",
+                new BeanPropertyRowMapper<CodeSet>(CodeSet.class));
     }
 
     public List<CodeSet> FindCurrentStatusCodesets() {
-        List<CodeSet> codeSets = new ArrayList<>();
-        codeSets.add(new CodeSet(1, "Admitted", "CURRENT_STATUS"));
-        codeSets.add(new CodeSet(2, "In ICU", "CURRENT_STATUS"));
-        codeSets.add(new CodeSet(3, "Discharged", "CURRENT_STATUS"));
-        codeSets.add(new CodeSet(3, "Died", "CURRENT_STATUS"));
-        return codeSets;
+        return jdbcTemplate.query("SELECT * FROM covid_codeset where category = 'CURRENT_STATUS' ",
+                new BeanPropertyRowMapper<CodeSet>(CodeSet.class));
     }
 }
