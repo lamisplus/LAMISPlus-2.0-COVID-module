@@ -220,38 +220,23 @@ const PatientVaccinationHistory = (props) => {
        
             <MaterialTable
             icons={tableIcons}
-              title="Find Patient "
+              title="Patient Vaccination History "
               columns={[
               // { title: " ID", field: "Id" },
                 {
-                  title: "Patient Vaccination History",
-                  field: "name",
+                  title: "Encounter Date",
+                  field: "date",
                 },
-                { title: "Hospital Number", field: "hospital_number", filtering: false },
-                { title: "Address", field: "address", filtering: false },
-                { title: "Phone Number", field: "phone_number", filtering: false },
-                { title: "DOB", field: "dob", filtering: false },
-                { title: "Age", field: "age", filtering: false },
                 { title: "Vaccination Status", field: "v_status", filtering: false },
                 { title: "Status", field: "status", filtering: false },        
                 { title: "Actions", field: "actions", filtering: false }, 
               ]}
               data={ patientList.map((row) => ({
                   //Id: manager.id,
-                    name: VaccinationStatusIcon(row),
-                    hospital_number: row.participant_id,
-                    address: row.address,
-                    phone_number:  row.phone,
-                    dob:row.dob,
-                    age: (row.dob === 0 ||
-                        row.dob === undefined ||
-                        row.dob === null ||
-                        row.dob === "" )
-                          ? 0
-                          : calculate_age(moment(row.dob).format("DD-MM-YYYY")),
-                    v_status:  VaccinationStatus(row),
-                    status: CurrentStatus(row.current_status) 
-                            ,
+                   date: VaccinationStatusIcon(row),
+                    v_status: row.participant_id,
+                    status: row.participant_id,
+                   
                     actions:
             
                     <div>
