@@ -62,7 +62,7 @@ function PatientCard(props) {
   const patientObj = props.patientObj ? props.patientObj : {}
   const [transferModal, setTransferModal] = useState(false);
     const Transfertoggle = () => setTransferModal(!transferModal);
-  const calculate_age = dob => {
+    const calculate_age = dob => {
     var today = new Date();
     var dateParts = dob.split("-");
     var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
@@ -141,7 +141,7 @@ const VaccinationStatus = (patient)=>{
                     <Col md={4} className={classes.root2}>
                     <span>
                         {" "}
-                        Age : <b>{calculate_age(moment(patientObj.dob).format("DD-MM-YYYY"))}</b>
+                        Age : <b>{calculate_age(moment(patientObj.dob).format("YYYY-MM-DD"))}</b>
                     </span>
                     </Col>
                     <Col md={4}>

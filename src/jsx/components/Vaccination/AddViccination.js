@@ -12,7 +12,9 @@ import { ToastContainer, toast} from "react-toastify";
 import { url as baseUrl } from "./../../../api";
 import { token as token } from "./../../../api";
 import { useHistory } from "react-router-dom";
+import moment from "moment";
 
+let getAge =""
 const useStyles = makeStyles(theme => ({
     card: {
         margin: theme.spacing(20),
@@ -77,8 +79,26 @@ const Vaccination = (props) => {
         }
         const handleInputChange = e => {
             setValues ({...values,  [e.target.name]: e.target.value});
-          }
-          
+        }
+        
+        
+        const calculate_age = dob => {
+            var today = new Date();
+            var dateParts = dob.split("-");
+            var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+            var birthDate = new Date(dateObject); // create a date object directlyfrom`dob1`argument
+            var age_now = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                        age_now--;
+                    }
+                if (age_now === 0) {
+                        return m + " month(s)";
+                    }
+                    return age_now;
+            };
+
+    getAge=calculate_age(moment(patientObj.dob).format("DD-MM-YYYY"))
     /**** Submit Button Processing  */
     const handleSubmit = (e) => {
         //console.log(values)
@@ -112,6 +132,8 @@ const Vaccination = (props) => {
           
     }
 
+    console.log(getAge)
+
   return (      
       <div >
          
@@ -123,7 +145,10 @@ const Vaccination = (props) => {
                         <Card >
                             <CardBody>
                                 <Row >
+                                   {getAge>=5 ?
                                    
+                                    (
+                                        <>
                                  
                                         {vaccination.map((value) => (
                                             <>
@@ -134,6 +159,22 @@ const Vaccination = (props) => {
                                                         (
                                                             <Input
                                                             type="date"
+                                                            name={value.id}
+                                                            id={value.id}
+                                                            //value={value.name}
+                                                            onChange={handleInputChange}
+                                                            required
+                                                            >
+                                                            
+                                                        </Input>
+                                                        )
+                                                            :
+                                                            " "
+                                                        }
+                                                        {value.datatype==="number"?
+                                                        (
+                                                            <Input
+                                                            type="number"
                                                             name={value.id}
                                                             id={value.id}
                                                             //value={value.name}
@@ -188,7 +229,7 @@ const Vaccination = (props) => {
                                                             :
                                                             " "
                                                         }
-                                                        
+                                                   
                                                         
                                                 </FormGroup>
                                             
@@ -196,7 +237,16 @@ const Vaccination = (props) => {
                                             </>
                                         
                                         ))}
-                                        
+                                         </>
+                                    )
+                                    :
+                                    (
+                                        <>
+                                            <p><h4>The Age is less than 5</h4></p>
+                                        </>
+                                    )
+
+                                    }
                                              
                                   </Row>
                                       <br/>
@@ -210,6 +260,7 @@ const Vaccination = (props) => {
                                               className={classes.button}
                                               startIcon={<SaveIcon />}
                                               onClick={handleSubmit}
+                                              disabled={getAge<5?"true":""}
                                              
                                           >   
                                               Save 

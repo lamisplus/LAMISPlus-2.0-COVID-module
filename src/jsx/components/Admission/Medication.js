@@ -153,6 +153,22 @@ const Medication = (props) => {
                                                             :
                                                             " "
                                                         }
+                                                        {value.datatype==="number"?
+                                                        (
+                                                            <Input
+                                                            type="number"
+                                                            name={value.id}
+                                                            id={value.id}
+                                                            //value={value.name}
+                                                            onChange={handleInputChange}
+                                                            required
+                                                            >
+                                                            
+                                                        </Input>
+                                                        )
+                                                            :
+                                                            " "
+                                                        }
                                                         {value.datatype==="select"?
                                                         (
                                                             <Input
