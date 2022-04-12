@@ -12,7 +12,7 @@ import ViccinationStatus from "./ViccinationStatus";
 function RechartJs() {
   return (
     <>
-      <PageTitle motherMenu="Charts" activeMenu="ReChartJs" />
+
       <Row>
         <Col xl={4} lg={4}>
           <Card>            
