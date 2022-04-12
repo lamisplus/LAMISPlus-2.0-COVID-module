@@ -86,7 +86,7 @@ function AddmissionHome(props) {
     const ChronicMedicationToggle = () => setChronicMedicationModal(!chronicMedicationModal);
     const [supportiveCareModal, setSupportiveCareModal] = useState(false);
     const SupportiveCareToggle = () => setSupportiveCareModal(!supportiveCareModal);
-    const [viccinationHistory, setViccinationHistory] = useState([])
+    const [vaccinationHistory, setVaccinationHistory] = useState([])
     const [inclusionHistory, setInclusionHistory] = useState([])
     const [demograhicHistory, setDemographicHistory] = useState([])
     const [vitalHistory, setVitalHistory] = useState([])
@@ -145,7 +145,7 @@ function AddmissionHome(props) {
         { headers: {"Authorization" : `Bearer ${token}`} }
         )
         .then((response) => {
-            setInclusionHistory(response.data)
+            setVaccinationHistory(response.data)
         })
         .catch((error) => {    
         }); 
@@ -324,7 +324,7 @@ function AddmissionHome(props) {
                     </Label>
                         <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ViccinationModal()}/>
                             <List divided verticalAlign='middle'>
-                                {viccinationHistory!=="" && viccinationHistory.map((value) => (
+                                {vaccinationHistory!=="" && vaccinationHistory.map((value) => (
                                     <>
                                     <List.Item>
                                     <List.Content floated='right'>
