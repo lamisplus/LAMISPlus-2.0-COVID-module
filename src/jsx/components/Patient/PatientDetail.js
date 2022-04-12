@@ -82,10 +82,10 @@ function PatientCard(props) {
                 <PatientCardDetail patientObj={patientObj}/>
                 <PatientChart />
               </Tab>
-              <Tab eventKey="Vaccination" title="Vaccination">
-              <PatientCardDetail patientObj={patientObj}/>
-                <PatientVaccinationHistory/>
-              </Tab>
+              // <Tab eventKey="Vaccination" title="Vaccination">
+              // <PatientCardDetail patientObj={patientObj}/>
+              //   <PatientVaccinationHistory/>
+              // </Tab>
               <Tab eventKey="Addmission" title="Admission">
               <PatientCardDetail patientObj={patientObj}/>
                 <AddmissionHome />
