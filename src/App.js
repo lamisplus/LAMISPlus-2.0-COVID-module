@@ -1,24 +1,19 @@
 import React from "react";
 import {
-  MemoryRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-
+import RegisterPatient from './main/webapp/components/RegisterPatient'
+import Dashboard from './main/webapp/components/PatientList'
+import Home from './main/webapp/components/Home'
+import PatientDetail from './main/webapp/components/PatientDetail'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
-import "./css/style.css";
-
-import RegisterPatient from './jsx/components/Patient/RegisterPatient'
-import Home from './jsx/components/Home'
-import EditPatient from './jsx/components/Patient/EditPatient'
-import PatientDetail from './jsx/components/Patient/PatientDetail'
-
 
 export default function App() {
   return (
-
+    <Router>
       <div>
       <ToastContainer />
         {/* A <Switch> looks through its children <Route>s and
@@ -26,25 +21,30 @@ export default function App() {
         <Switch>
          
           <Route path="/register-patient">
-            <RegisterPatient />
+            <RegisterPatientPage />
           </Route>
-          <Route path="/patient-dashboard">
+          <Route path="/patient-detail">
             <PatientDetail />
           </Route>
-          <Route path="/edit-patient">
-            <EditPatient />
-          </Route>
           <Route path="/">
-            <Home />
+          <Home />
           </Route>
         
           
         </Switch>
       </div>
- 
+    </Router>
   );
 }
 
-
+function PatientDashboard() {
+  return <Dashboard />;
+}
+function RegisterPatientPage() {
+  return <RegisterPatient />;
+}
+// function Patient() {
+//   return <PatientDetail />;
+// }
 
 
