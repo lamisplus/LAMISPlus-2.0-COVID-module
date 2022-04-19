@@ -216,10 +216,10 @@ const VaccinationStatus = (patient)=>{
                 </div>
                 <div className={classNames(classes.column, classes.helper)}>
                     <Typography variant="caption">
-                    <Label color={"blue"} size={"tiny"} onClick={() => loadTransferModal()} style={{cursor:"pointer"}}>
+                    {/* <Label color={"blue"} size={"tiny"} onClick={() => loadTransferModal()} style={{cursor:"pointer"}}>
                         Transfer
                         
-                    </Label>
+                    </Label> */}
                    
                     </Typography>
                 </div>

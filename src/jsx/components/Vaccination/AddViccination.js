@@ -132,8 +132,6 @@ const Vaccination = (props) => {
           
     }
 
-    console.log(getAge)
-
   return (      
       <div >
          
