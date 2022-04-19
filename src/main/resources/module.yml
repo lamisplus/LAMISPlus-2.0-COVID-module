@@ -2,7 +2,7 @@ basePackage: org.lamisplus.modules.covid
 name: CovidModule
 store: true
 menus:
-  - icon: wc
+  - icon: flaticon-087-stop
     disabled: false
     name: covid
     state: covid
@@ -12,4 +12,4 @@ webModules:
   - breadcrumb: COVID
     name: CovidModule
     path: covid
-    position: 98
+    position: 99

@@ -228,7 +228,7 @@ const Patients = (props) => {
                 { title: "Hospital Number", field: "hospital_number", filtering: false },
                 { title: "Address", field: "address", filtering: false },
                 { title: "Phone Number", field: "phone_number", filtering: false },
-                { title: "DOB", field: "dob", filtering: false },
+               
                 { title: "Age", field: "age", filtering: false },
                 { title: "Vaccination Status", field: "v_status", filtering: false },
                 { title: "Status", field: "status", filtering: false },        
@@ -240,7 +240,7 @@ const Patients = (props) => {
                     hospital_number: row.participant_id,
                     address: row.address,
                     phone_number:  row.phone,
-                    dob:row.dob,
+                    
                     age: (row.dob === 0 ||
                         row.dob === undefined ||
                         row.dob === null ||
