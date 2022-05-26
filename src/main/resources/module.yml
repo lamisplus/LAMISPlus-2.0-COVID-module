@@ -4,7 +4,7 @@ store: true
 menus:
   - icon: flaticon-087-stop
     disabled: false
-    name: covid
+    name: Covid
     state: covid
     url: /across/resources/static/covid/index.html
 umdLocation: /across/resources/static/covid/index.html

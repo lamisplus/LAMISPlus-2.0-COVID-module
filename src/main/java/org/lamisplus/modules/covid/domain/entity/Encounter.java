@@ -1,30 +1,32 @@
 package org.lamisplus.modules.covid.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Table(name = "covid_encounter")
 public class Encounter {
     @Id
-    @GeneratedValue
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "uuid")
     private String uuid;
-    private int patient_id;
-    private LocalDate visit_date;
+    @Column(name = "patient_id")
+    private int patientId;
+    @Column(name = "visit_date")
+    private LocalDate visitDate;
+    @Column(name = "category")
     private String category;
+    @Column(name = "location")
     private String location;
+
+    @JoinColumn(name = "encounterId")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuestionAnswer> questionAnswers;
 }

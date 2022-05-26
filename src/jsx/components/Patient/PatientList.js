@@ -238,7 +238,7 @@ const Patients = (props) => {
                 { title: "Phone Number", field: "phone_number", filtering: false },
                 
                 { title: "Age", field: "age", filtering: false },
-                { title: "Vaccination Status", field: "v_status", filtering: false },
+                //{ title: "Vaccination Status", field: "v_status", filtering: false },
                 { title: "Status", field: "status", filtering: false },        
                 { title: "Actions", field: "actions", filtering: false }, 
               ]}
@@ -255,7 +255,7 @@ const Patients = (props) => {
                         row.dob === "" )
                           ? 0
                           : calculate_age(moment(row.dob).format("DD-MM-YYYY")),
-                    v_status:  VaccinationStatus(row),
+                    //v_status:  VaccinationStatus(row),
                     status: CurrentStatus(row.current_status) 
                             ,
                     actions:

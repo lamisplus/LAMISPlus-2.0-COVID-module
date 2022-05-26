@@ -165,7 +165,9 @@ const VaccinationStatus = (patient)=>{
                     </Col>
 
                     <Col md={12}>
-                    {VaccinationStatus(patientObj)}
+                    {
+                        //VaccinationStatus(patientObj)
+                    }
                     {CurrentStatus(patientObj.current_status)}
                     
                     </Col>

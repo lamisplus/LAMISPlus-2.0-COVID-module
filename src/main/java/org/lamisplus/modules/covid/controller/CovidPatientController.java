@@ -2,6 +2,7 @@ package org.lamisplus.modules.covid.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.lamisplus.modules.covid.domain.dto.PatientDTO;
 import org.lamisplus.modules.covid.domain.entity.Patient;
 import org.lamisplus.modules.covid.service.PatientService;
 import org.springframework.web.bind.annotation.*;
@@ -16,17 +17,17 @@ public class CovidPatientController {
     private final PatientService service;
 
     @PostMapping("")
-    public Patient AddPatient(@RequestBody Patient patient){
+    public PatientDTO AddPatient(@RequestBody PatientDTO patient){
         return service.SavePatient(patient);
     }
 
     @PutMapping("/{id}")
-    public Patient UpdatePatient(@PathVariable int id, @RequestBody Patient patient){
+    public PatientDTO UpdatePatient(@PathVariable int id, @RequestBody PatientDTO patient){
         return service.UpdatePatient(id, patient);
     }
 
     @GetMapping("")
-    public List<Patient> GetPatients(){
+    public List<PatientDTO> GetPatients(){
         return service.GetAllPatients();
     }
 

@@ -118,7 +118,7 @@ const Commorbitie = (props) => {
               <Modal show={props.showModal} toggle={props.toggle} className="fade" size="lg">
               <Form >
              <Modal.Header toggle={props.toggle} style={{backgroundColor:"#eeeeee"}}>
-                 Co-Morbitie
+                 Co-morbidities
                  <Button
                     variant=""
                     className="btn-close"

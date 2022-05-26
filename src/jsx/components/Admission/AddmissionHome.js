@@ -369,7 +369,7 @@ function AddmissionHome(props) {
                 <Grid.Column>
                 <Segment raised>
                     <Label as='a' color='purple' ribbon>
-                    CO-MORBIDITIE
+                    CO-MORBIDITIES
                     </Label>
                     <Icon name='plus' size='small' className=" float-end ms-1" style={{cursor: 'pointer'}} onClick={() => ComorbitieModal()}/>
                         <List divided verticalAlign='middle'>

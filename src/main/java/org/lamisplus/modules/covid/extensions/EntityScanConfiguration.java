@@ -1,4 +1,4 @@
-package org.lamisplus.modules.covid.config;
+package org.lamisplus.modules.covid.extensions;
 
 import com.foreach.across.core.annotations.ModuleConfiguration;
 import com.foreach.across.modules.hibernate.provider.HibernatePackageConfigurer;

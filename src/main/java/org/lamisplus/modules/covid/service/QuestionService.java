@@ -1,20 +1,24 @@
 package org.lamisplus.modules.covid.service;
 
 import lombok.RequiredArgsConstructor;
-import org.lamisplus.modules.covid.domain.entity.Question;
+import lombok.extern.slf4j.Slf4j;
+import org.lamisplus.modules.covid.domain.dto.QuestionDTO;
+import org.lamisplus.modules.covid.domain.mapper.CovidMapper;
 import org.lamisplus.modules.covid.repository.QuestionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
+@Slf4j
 @RequiredArgsConstructor
 public class QuestionService {
-    @Autowired
-    private QuestionRepository questionRepository;
+    private final QuestionRepository repository;
+    private final CovidMapper mapper;
 
-    public List<Question> GetQuestionsByCategory(String category) {
-        return questionRepository.findAllByCategory(category);
+    public List<QuestionDTO> GetQuestionsByCategory(String category) {
+        return mapper.toQuestionDtoList(repository.findAllByCategory(category));
     }
 }

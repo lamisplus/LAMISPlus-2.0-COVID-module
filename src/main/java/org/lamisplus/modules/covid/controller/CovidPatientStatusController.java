@@ -2,6 +2,7 @@ package org.lamisplus.modules.covid.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.lamisplus.modules.covid.domain.dto.PatientStatusDTO;
 import org.lamisplus.modules.covid.domain.entity.CodeSet;
 import org.lamisplus.modules.covid.domain.entity.PatientStatus;
 import org.lamisplus.modules.covid.service.PatientStatusService;
@@ -17,12 +18,12 @@ public class CovidPatientStatusController {
     private final PatientStatusService service;
 
     @PostMapping("")
-    public PatientStatus SaveCurrentStatus(@RequestBody PatientStatus patientStatus){
+    public PatientStatusDTO SaveCurrentStatus(@RequestBody PatientStatusDTO patientStatus){
         return service.SaveStatus(patientStatus);
     }
 
     @GetMapping("/{patient_id}")
-    public PatientStatus GetCurrentStatus(@PathVariable Integer patient_id){
+    public PatientStatusDTO GetCurrentStatus(@PathVariable Integer patient_id){
         return service.GetStatusByPatientId(patient_id);
     }
 
