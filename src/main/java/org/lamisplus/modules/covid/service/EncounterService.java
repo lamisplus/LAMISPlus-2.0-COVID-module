@@ -29,8 +29,8 @@ public class EncounterService {
         return mapper.toEncounterDto(repository.save(encounter));
     }
 
-    public List<EncounterDTO> GetAllEncountersByPatientId(int patient_id, String category) {
-        return mapper.toEncounterDtoList(repository.findEncountersByPatientId(patient_id));
+    public List<EncounterDTO> GetAllEncountersByPatientId(int patientId, String category) {
+        return mapper.toEncounterDtoList(repository.findEncountersByPatientIdAndCategory(patientId, category));
     }
 
     public String Delete(int id) {

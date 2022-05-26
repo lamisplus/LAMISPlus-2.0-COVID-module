@@ -12,5 +12,5 @@ import java.util.*;
 
 @Repository
 public interface EncounterRepository extends JpaRepository<Encounter, Integer> {
-    List<Encounter> findEncountersByPatientId(Integer patientId);
+    List<Encounter> findEncountersByPatientIdAndCategory(Integer patientId, String category);
 }
