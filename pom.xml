@@ -303,7 +303,7 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<target>
-								<copy todir="${project.build.directory}/classes/views/static/laboratory">
+								<copy todir="${project.build.directory}/classes/views/static/covid">
 									<fileset dir="${project.basedir}/build" />
 								</copy>
 							</target>

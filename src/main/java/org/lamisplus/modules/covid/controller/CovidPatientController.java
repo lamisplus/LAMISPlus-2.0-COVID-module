@@ -13,7 +13,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/covid")
+@RequestMapping("api/v1/covid")
 public class CovidPatientController {
     private final PatientService service;
 

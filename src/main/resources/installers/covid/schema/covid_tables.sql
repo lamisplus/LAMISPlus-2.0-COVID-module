@@ -133,6 +133,12 @@ insert into covid_question_response(question_id, name) values((select max(id) fr
 
 insert into covid_question(name, category, datatype) values('Date of the 1st dose', 'VACCINATION', 'date');
 
+insert into covid_question(name, category, datatype) values('Batch Number of COVID-19 Vaccine First Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Location of COVID-19 Vaccine First Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Facility/Community of COVID-19 Vaccine First Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Adverse Effects following COVID-19 Vaccine First Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Date of onset of Adverse Effects following COVID-19 Vaccine First Dose', 'VACCINATION', 'date');
+
 insert into covid_question(name, category, datatype) values('Dose 2, specify', 'VACCINATION', 'select');
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Pfizer');
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Moderna');
@@ -147,6 +153,12 @@ insert into covid_question_response(question_id, name) values((select max(id) fr
 
 insert into covid_question(name, category, datatype) values('Date of the 2nd dose', 'VACCINATION', 'date');
 
+insert into covid_question(name, category, datatype) values('Batch Number of COVID-19 Vaccine Second Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Location of COVID-19 Vaccine Second Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Facility/Community of COVID-19 Vaccine Second Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Adverse Effects following COVID-19 Vaccine Second Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Date of onset of Adverse Effects following COVID-19 Vaccine Second Dose', 'VACCINATION', 'date');
+
 insert into covid_question(name, category, datatype) values('Dose 3, specify', 'VACCINATION', 'select');
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Pfizer');
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Moderna');
@@ -160,6 +172,14 @@ insert into covid_question_response(question_id, name) values((select max(id) fr
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Unknown');
 
 insert into covid_question(name, category, datatype) values('Date of the 3rd dose', 'VACCINATION', 'date');
+
+insert into covid_question(name, category, datatype) values('Batch Number of COVID-19 Vaccine Third (Booster) Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Location of COVID-19 Vaccine Third (Booster) Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Facility/Community of COVID-19 Vaccine Third (Booster) Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Adverse Effects following COVID-19 Vaccine Third (Booster) Dose', 'VACCINATION', 'text');
+insert into covid_question(name, category, datatype) values('Date of onset of Adverse Effects following COVID-19 Vaccine Third (Booster) Dose', 'VACCINATION', 'date');
+insert into covid_question(name, category, datatype) values('Date of Declining COVID-19 Vaccination', 'VACCINATION', 'date');
+insert into covid_question(name, category, datatype) values('Reasons for declining COVID-19 Vaccination', 'VACCINATION', 'text');
 
 
 

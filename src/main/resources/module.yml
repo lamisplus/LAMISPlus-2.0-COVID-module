@@ -4,12 +4,12 @@ store: true
 menus:
   - icon: flaticon-087-stop
     disabled: false
-    name: Covid
+    name: COVID-19
     state: covid
     url: /across/resources/static/covid/index.html
 umdLocation: /across/resources/static/covid/index.html
 webModules:
-  - breadcrumb: COVID
+  - breadcrumb: COVID-19
     name: CovidModule
     path: covid
     position: 99
