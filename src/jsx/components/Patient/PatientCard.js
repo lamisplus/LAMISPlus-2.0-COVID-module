@@ -141,7 +141,7 @@ const VaccinationStatus = (patient)=>{
                     <Col md={4} className={classes.root2}>
                     <span>
                         {" "}
-                        Age : <b>{calculate_age(moment(patientObj.dob).format("YYYY-MM-DD"))}</b>
+                        Age : <b>{calculate_age(moment(patientObj.dob).format("DD-MM-YYYY"))}</b>
                     </span>
                     </Col>
                     <Col md={4}>
