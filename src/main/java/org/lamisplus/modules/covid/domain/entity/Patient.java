@@ -1,36 +1,40 @@
 package org.lamisplus.modules.covid.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Table(name = "covid_patient")
 public class Patient {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "uuid")
     private String uuid;
-    private String first_name;
-    private String mid_name;
-    private String last_name;
-    private String participant_id;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "mid_name")
+    private String midName;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "participant_id")
+    private String participantId;
+    @Column(name = "gender")
     private int gender;
+    @Column(name = "dob")
     private LocalDate dob;
+    @Column(name = "phone")
     private String phone;
-    private String current_status;
-    private String vaccination_status;
+    @Column(name = "current_status")
+    private String currentStatus;
+    @Column(name = "vaccination_status")
+    private String vaccinationStatus;
+    @Column(name = "address")
     private String address;
 }

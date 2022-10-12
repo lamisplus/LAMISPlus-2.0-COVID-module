@@ -1,34 +1,41 @@
 package org.lamisplus.modules.covid.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.lamisplus.modules.covid.domain.dto.EncounterDTO;
 import org.lamisplus.modules.covid.domain.entity.Encounter;
-import org.lamisplus.modules.covid.domain.entity.Patient;
+import org.lamisplus.modules.covid.domain.mapper.CovidMapper;
 import org.lamisplus.modules.covid.repository.EncounterRepository;
-import org.lamisplus.modules.covid.repository.PatientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
+@Slf4j
 @RequiredArgsConstructor
 public class EncounterService {
-    @Autowired
-    private EncounterRepository repository;
+    private final EncounterRepository repository;
+    private final CovidMapper mapper;
 
-    public Encounter Save(Encounter encounter){
-        return repository.Save(encounter);
+    public EncounterDTO Save(EncounterDTO encounterDTO){
+        Encounter encounter = mapper.toEncounter(encounterDTO);
+        return mapper.toEncounterDto(repository.save(encounter));
     }
 
-    public Encounter Update(int id, Encounter encounter){
-        return repository.Update(id, encounter);
+    public EncounterDTO Update(int id, EncounterDTO encounterDTO){
+        Encounter encounter = mapper.toEncounter(encounterDTO);
+        return mapper.toEncounterDto(repository.save(encounter));
     }
 
-    public List<Encounter> GetAllEncountersByPatientId(int patient_id, String category) {
-        return repository.findEncounterByPatientId(patient_id, category);
+    public List<EncounterDTO> GetAllEncountersByPatientId(int patientId, String category) {
+        return mapper.toEncounterDtoList(repository.findEncountersByPatientIdAndCategory(patientId, category));
     }
 
     public String Delete(int id) {
-        return repository.Delete(id);
+        Encounter encounter = repository.findById(id).orElse(null);
+        repository.delete(encounter);
+        return id + " deleted successfully";
     }
 }
