@@ -13,3 +13,7 @@ webModules:
     name: CovidModule
     path: covid
     position: 99
+permissions:
+  - name: create_covid_vaccination
+    description: create covid vaccination
+    moduleName: CovidModule

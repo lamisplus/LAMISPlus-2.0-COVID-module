@@ -14,6 +14,8 @@ public interface CovidMapper {
     Question toQuestion(QuestionDTO questionDTO);
     QuestionAnswer toQuestionAnswer(QuestionAnswerDTO questionAnswerDTO);
     QuestionResponse toQuestionResponse(QuestionResponseDTO questionResponseDTO);
+    Vaccination toVaccination(VaccinationDTO vaccinationDTO);
+    VaccinationDose toVaccinationDose(VaccinationDoseDTO vaccinationDoseDTO);
 
     CodeSetDTO toCodeSetDto(CodeSet codeSet);
     EncounterDTO toEncounterDto(Encounter encounter);
@@ -21,6 +23,9 @@ public interface CovidMapper {
     QuestionDTO toQuestionDto(Question question);
     QuestionAnswerDTO toQuestionAnswerDto(QuestionAnswer questionAnswer);
     QuestionResponseDTO toQuestionResponseDto(QuestionResponse questionResponse);
+    VaccinationDTO toVaccinationDto(Vaccination vaccination);
+    VaccinationDoseDTO toVaccinationDoseDto(VaccinationDose vaccinationDose);
+
 
     List<CodeSetDTO> toCodeSetDtoList(List<CodeSet> codeSets);
     List<EncounterDTO> toEncounterDtoList(List<Encounter> encounters);
@@ -28,4 +33,6 @@ public interface CovidMapper {
     List<QuestionDTO> toQuestionDtoList(List<Question> questions);
     List<QuestionAnswerDTO> toQuestionAnswerDtoList(List<QuestionAnswer> questionAnswers);
     List<QuestionResponseDTO> toQuestionResponseDtoList(List<QuestionResponse> questionResponses);
+    List<VaccinationDTO> toVaccinationDtoList(List<Vaccination> vaccinationList);
+    List<VaccinationDoseDTO> toVaccinationDoseDtoList(List<VaccinationDose> vaccinationDoseList);
 }

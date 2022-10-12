@@ -8,8 +8,8 @@ import org.springframework.core.annotation.Order;
 @Installer(name = "schema-installer-covid",
         description = "Installs the required covid tables",
         version = 1)
-public class SchemaInstaller extends AcrossLiquibaseInstaller {
-    public SchemaInstaller() {
-        super("classpath:installers/covid/schema/schema.xml");
+public class SchemaInstaller1 extends AcrossLiquibaseInstaller {
+    public SchemaInstaller1() {
+        super("classpath:installers/covid/schema/schema-1.xml");
     }
 }

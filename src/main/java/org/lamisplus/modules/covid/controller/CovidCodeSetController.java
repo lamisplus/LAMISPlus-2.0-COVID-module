@@ -12,7 +12,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/covid/patientstatus")
+@RequestMapping("api/v1/covid/codeset")
 public class CovidCodeSetController {
     private final CodeSetService service;
 

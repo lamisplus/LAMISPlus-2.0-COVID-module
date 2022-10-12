@@ -102,6 +102,7 @@ CREATE SEQUENCE covid_codeset_id_seq;
 CREATE TABLE public.covid_codeset
 (
     id bigint NOT NULL DEFAULT nextval('covid_codeset_id_seq'),
+    uuid character varying(100),
 	name character varying(200),
 	category character varying(1000),
     PRIMARY KEY (id)
@@ -917,6 +918,5 @@ insert into covid_question(name, category, datatype) values('Plasma exchange the
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Yes');
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'No');
 insert into covid_question_response(question_id, name) values((select max(id) from covid_question), 'Unknown');
-
 
 

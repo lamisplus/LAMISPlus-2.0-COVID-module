@@ -11,7 +11,7 @@
             </sqlCheck>
         </preConditions>
         <sqlFile dbms="postgresql"
-                 path="covid_tables.sql"
+                 path="update-1.sql"
                  relativeToChangelogFile="true"
                  splitStatements="false"
                  stripComments="true"/>
